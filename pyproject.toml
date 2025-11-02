@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "serio"
-version = "0.1.1"
-description = "Modern asynchronous serial port library for Python 3.12+"
+version = "0.1.2"
+description = "Modern asynchronous serial port library for Python 3.11+"
 authors = ["Semenets V. Pavel <p.semenets@gmail.com>"]
 license = "MIT"
 readme = "README.md"
@@ -10,6 +10,19 @@ packages = [{ include = "serio", from = "src" }]
 homepage = "https://github.com/xDarkmanx/serio"
 repository = "https://github.com/xDarkmanx/serio"
 documentation = "https://github.com/xDarkmanx/serio#readme"
+
+keywords = [
+    "serial",
+    "asyncio",
+    "async",
+    "rs232",
+    "rs485",
+    "com-port",
+    "uart",
+    "serial-port",
+    "asynchronous",
+    "pyserial",
+]
 
 classifiers = [
     "Development Status :: 4 - Beta",

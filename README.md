@@ -143,5 +143,5 @@ Contributions are welcome! Please feel free to submit pull requests or open issu
 ---
 
 **Author**: Semenets V. Pavel  
-**Version**: 0.1.1  
+**Version**: 0.1.2  
 **Email**: [p.semenets@gmail.com](mailto:p.semenets@gmail.com)
