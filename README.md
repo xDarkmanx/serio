@@ -1,8 +1,9 @@
 # Serio: Modern Asynchronous Serial Communication Library
 
-![Python Version](https://img.shields.io/badge/Python-3.11%2B-blue)
+![Python Version](https://img.shields.io/badge/Python-3.11%20–%203.13-blue)
 ![License](https://img.shields.io/badge/License-MIT-green)
-![Build Status](https://img.shields.io/badge/Build-passing-brightgreen)
+![Build Status](https://github.com/xDarkmanx/serio/workflows/Python%20package/badge.svg)
+![Coverage](https://coveralls.io/repos/github/xDarkmanx/serio/badge.svg?branch=main)
 
 **Serio** is a modern asynchronous serial port library for Python 3.11+ that provides efficient, native async I/O without thread pool overhead. It offers both high-level streams API and low-level transport API for serial communication.
 

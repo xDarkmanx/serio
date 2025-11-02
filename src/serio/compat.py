@@ -18,7 +18,7 @@ def create_stream_reader(limit=None, loop=None):
     """
     Create a StreamReader compatible with all Python versions.
 
-    In Python 3.13+, StreamReader requires a running event loop.
+    In Python 3.11+, StreamReader requires a running event loop.
     This function handles the differences safely.
     """
     if limit is None:
