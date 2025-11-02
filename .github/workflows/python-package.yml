@@ -16,7 +16,6 @@ jobs:
       fail-fast: false
       matrix:
         python-version: ["3.11", "3.12", "3.13"]
-        os: [ubuntu-latest]
 
     steps:
       - name: Checkout code
@@ -34,6 +33,16 @@ jobs:
 
       - name: Configure Poetry
         run: poetry config virtualenvs.create true
+
+      - name: Cache Poetry virtualenv
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cache/pypoetry
+            ~/.local/share/virtualenvs
+          key: ${{ runner.os }}-poetry-${{ hashFiles('pyproject.toml') }}
+          restore-keys: |
+            ${{ runner.os }}-poetry-
 
       - name: Install dependencies
         run: poetry install --with test,dev --no-interaction
@@ -55,13 +64,22 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: "3.14"
-          cache: "poetry"
+          python-version: "3.13"
 
       - name: Install Poetry
         run: |
           curl -sSL https://install.python-poetry.org | python3 -
           echo "$HOME/.local/bin" >> $GITHUB_PATH
+
+      - name: Cache Poetry virtualenv
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cache/pypoetry
+            ~/.local/share/virtualenvs
+          key: ${{ runner.os }}-poetry-lint-${{ hashFiles('pyproject.toml') }}
+          restore-keys: |
+            ${{ runner.os }}-poetry-lint-
 
       - name: Install dependencies
         run: poetry install --no-interaction
@@ -78,13 +96,22 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: "3.14"
-          cache: "poetry"
+          python-version: "3.13"
 
       - name: Install Poetry
         run: |
           curl -sSL https://install.python-poetry.org | python3 -
           echo "$HOME/.local/bin" >> $GITHUB_PATH
+
+      - name: Cache Poetry virtualenv
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cache/pypoetry
+            ~/.local/share/virtualenvs
+          key: ${{ runner.os }}-poetry-security-${{ hashFiles('pyproject.toml') }}
+          restore-keys: |
+            ${{ runner.os }}-poetry-security-
 
       - name: Install dependencies
         run: poetry install --no-interaction
@@ -105,13 +132,25 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: "3.14"
-          cache: "poetry"
+          python-version: "3.13"
 
       - name: Install Poetry
         run: |
           curl -sSL https://install.python-poetry.org | python3 -
           echo "$HOME/.local/bin" >> $GITHUB_PATH
+
+      - name: Cache Poetry virtualenv
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cache/pypoetry
+            ~/.local/share/virtualenvs
+          key: ${{ runner.os }}-poetry-build-${{ hashFiles('pyproject.toml') }}
+          restore-keys: |
+            ${{ runner.os }}-poetry-build-
+
+      - name: Install dependencies
+        run: poetry install --no-interaction
 
       - name: Build package
         run: poetry build
