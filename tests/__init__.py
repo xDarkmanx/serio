@@ -5,8 +5,8 @@ This package contains unit tests, integration tests, and test fixtures
 for verifying serio functionality across different platforms and Python versions.
 """
 
-__version__ = "0.1.0"
-__author__ = "Serio Test Suite"
+__version__ = "0.1.1"
+__author__ = "Semenets V. Pavel"
 
 # Import key test utilities for easier access
 # from .conftest import mock_serial

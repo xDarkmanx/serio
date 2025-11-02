@@ -1,11 +1,29 @@
 [tool.poetry]
 name = "serio"
-version = "0.1.0"
+version = "0.1.1"
 description = "Modern asynchronous serial port library for Python 3.12+"
 authors = ["Semenets V. Pavel <p.semenets@gmail.com>"]
 license = "MIT"
 readme = "README.md"
+
 packages = [{ include = "serio", from = "src" }]
+homepage = "https://github.com/xDarkmanx/serio"
+repository = "https://github.com/xDarkmanx/serio"
+documentation = "https://github.com/xDarkmanx/serio#readme"
+
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Software Development :: Libraries",
+    "Topic :: System :: Hardware",
+    "Topic :: Communications",
+]
 
 [tool.poetry.dependencies]
 python = ">=3.11"

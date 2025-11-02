@@ -50,7 +50,7 @@ asyncio.run(main())
 
 ```python
 import asyncio
-from serio import create_serial_connection, SerialTransport
+from serio import create_serial_connection
 
 class MyProtocol(asyncio.Protocol):
     def connection_made(self, transport):
@@ -143,5 +143,5 @@ Contributions are welcome! Please feel free to submit pull requests or open issu
 ---
 
 **Author**: Semenets V. Pavel  
-**Version**: 0.1.0  
+**Version**: 0.1.1  
 **Email**: [p.semenets@gmail.com](mailto:p.semenets@gmail.com)

@@ -23,7 +23,7 @@ from .exceptions import SerialConnectionError
 from .exceptions import SerialConfigError
 from .exceptions import PlatformNotSupportedError
 
-__version__ = "0.1.0"
+__version__ = "0.1.1"
 __author__ = "Semenets V. Pavel"
 __license__ = "MIT"
 

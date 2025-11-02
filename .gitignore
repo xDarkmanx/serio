@@ -1,4 +1,7 @@
 .venv
+.coverage
+coverage.xml
+
 htmlcov
 dist
 poetry.lock
