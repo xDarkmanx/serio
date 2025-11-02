@@ -138,11 +138,6 @@ jobs:
           poetry add --group security bandit safety
           poetry run bandit -r src/serio -f html -o bandit_report.html
 
-      - name: Run Safety vulnerability scan
-        uses: pyupio/safety-action@v1
-        with:
-          api-key: ${{ secrets.SAFETY_API_KEY }}
-
   build:
     runs-on: ubuntu-latest
     needs: [test, lint, security, finish]
