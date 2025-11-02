@@ -1,0 +1,7 @@
+.venv
+htmlcov
+dist
+poetry.lock
+*.pyc
+.pytest_cache
+.coverage

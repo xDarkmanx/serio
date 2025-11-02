@@ -1,0 +1,59 @@
+[tool.poetry]
+name = "serio"
+version = "0.1.0"
+description = "Modern asynchronous serial port library for Python 3.12+"
+authors = ["Semenets V. Pavel <p.semenets@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+packages = [{include = "serio", from = "src"}]
+
+[tool.poetry.dependencies]
+python = ">=3.11"
+pyserial = ">=3.5"
+
+[tool.poetry.group.dev.dependencies]
+pytest = ">=8.4.2"
+pytest-asyncio = ">=1.2.0"
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.group.test.dependencies]
+pytest = ">=8.4.2"
+pytest-asyncio = ">=1.2.0"
+pytest-cov = ">=4.1.0"
+pytest-mock = ">=3.11.0"
+pyvirtualserial = ">=0.1.0"
+anyio = ">=3.7.0"
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+
+[tool.coverage.run]
+source = ["src/serio"]
+omit = [
+    "*/tests/*",
+    "*/test_*",
+    "*/__pycache__/*",
+    "*/setup.py"
+]
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "def __repr__",
+    "raise AssertionError",
+    "raise NotImplementedError",
+    "if 0:",
+    "if __name__ == .__main__.:",
+    "class .*\\bProtocol\\b:"
+]
+
+[tool.coverage.html]
+directory = "htmlcov"
+title = "Serio Test Coverage"
