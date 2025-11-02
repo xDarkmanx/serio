@@ -120,7 +120,7 @@ jobs:
         run: |
           poetry add --group security bandit safety
           poetry run bandit -r src/serio -f html -o bandit_report.html
-          poetry run safety check
+          poetry run safety scan
 
   build:
     runs-on: ubuntu-latest

@@ -5,19 +5,28 @@ description = "Modern asynchronous serial port library for Python 3.12+"
 authors = ["Semenets V. Pavel <p.semenets@gmail.com>"]
 license = "MIT"
 readme = "README.md"
-packages = [{include = "serio", from = "src"}]
+packages = [{ include = "serio", from = "src" }]
 
 [tool.poetry.dependencies]
 python = ">=3.11"
 pyserial = ">=3.5"
 
+[tool.poetry.group.lint.dependencies]
+flake8 = "^7.3.0"
+
 [tool.poetry.group.dev.dependencies]
 pytest = ">=8.4.2"
 pytest-asyncio = ">=1.2.0"
 
+[tool.poetry.group.security.dependencies]
+bandit = "^1.8.6"
+safety = "^3.6.2"
+
 [build-system]
 requires = ["poetry-core>=2.0.0,<3.0.0"]
 build-backend = "poetry.core.masonry.api"
+
+
 
 [tool.poetry.group.test.dependencies]
 pytest = ">=8.4.2"
@@ -36,12 +45,7 @@ python_functions = ["test_*"]
 
 [tool.coverage.run]
 source = ["src/serio"]
-omit = [
-    "*/tests/*",
-    "*/test_*",
-    "*/__pycache__/*",
-    "*/setup.py"
-]
+omit = ["*/tests/*", "*/test_*", "*/__pycache__/*", "*/setup.py"]
 
 [tool.coverage.report]
 exclude_lines = [
@@ -51,8 +55,14 @@ exclude_lines = [
     "raise NotImplementedError",
     "if 0:",
     "if __name__ == .__main__.:",
-    "class .*\\bProtocol\\b:"
+    "class .*\\bProtocol\\b:",
 ]
+
+[tool.flake8]
+max-line-length = 127
+max-complexity = 10
+ignore = "E203,W503"
+exclude = [".git", "__pycache__", ".venv", "build", "dist"]
 
 [tool.coverage.html]
 directory = "htmlcov"

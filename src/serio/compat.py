@@ -17,18 +17,18 @@ _DEFAULT_LIMIT = 2 ** 16  # 64KB
 def create_stream_reader(limit=None, loop=None):
     """
     Create a StreamReader compatible with all Python versions.
-    
+
     In Python 3.13+, StreamReader requires a running event loop.
     This function handles the differences safely.
     """
     if limit is None:
         limit = _DEFAULT_LIMIT
-    
+
     if PYTHON_312:
         # Python 3.12+ - try to create StreamReader safely
         try:
             # Try to get current event loop
-            current_loop = asyncio.get_event_loop()
+            # current_loop = asyncio.get_event_loop()
             # If we have a loop, create StreamReader normally
             return asyncio.StreamReader(limit=limit)
         except RuntimeError:

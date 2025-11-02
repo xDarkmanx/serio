@@ -9,10 +9,13 @@ __version__ = "0.1.0"
 __author__ = "Serio Test Suite"
 
 # Import key test utilities for easier access
-from .conftest import mock_serial, mock_protocol, event_loop
+# from .conftest import mock_serial
+# from .conftest import mock_protocol
+# from .conftest import event_loop
 
 # Test markers for categorizing tests
-import pytest
+# import pytest
+
 
 def pytest_configure(config):
     """Register custom markers for test categorization."""
@@ -20,18 +23,22 @@ def pytest_configure(config):
         "markers",
         "slow: marks tests as slow (deselect with '-m \"not slow\"')"
     )
+
     config.addinivalue_line(
-        "markers", 
+        "markers",
         "integration: marks tests as integration tests"
     )
+
     config.addinivalue_line(
         "markers",
         "virtual_ports: tests requiring virtual serial ports"
     )
+
     config.addinivalue_line(
         "markers",
         "posix_only: tests that only work on POSIX systems"
     )
+
     config.addinivalue_line(
         "markers",
         "windows_only: tests that only work on Windows"

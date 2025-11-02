@@ -18,7 +18,7 @@ from .virtual_ports import (
 
 __all__ = [
     'virtual_serial_pair',
-    'mock_serial_config', 
+    'mock_serial_config',
     'simulated_serial_data',
     'serial_echo_server',
     'delayed_serial_response',

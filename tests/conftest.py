@@ -5,11 +5,12 @@ Pytest configuration and fixtures for serio tests.
 """
 import pytest
 import asyncio
-import sys
-from unittest.mock import Mock, AsyncMock, patch
+# import sys
 
-# Import all fixtures from virtual_ports
-from .fixtures.virtual_ports import *
+from unittest.mock import Mock
+# from unittest.mock import AsyncMock
+from unittest.mock import patch
+
 
 @pytest.fixture
 def event_loop():
@@ -17,6 +18,7 @@ def event_loop():
     loop = asyncio.new_event_loop()
     yield loop
     loop.close()
+
 
 @pytest.fixture
 def mock_serial():
@@ -33,16 +35,18 @@ def mock_serial():
         mock.return_value = instance
         yield instance
 
+
 @pytest.fixture
 def mock_protocol():
     """Mock asyncio protocol for testing."""
     protocol = Mock(spec=asyncio.Protocol)
     protocol.connection_made = Mock()
-    protocol.connection_lost = Mock() 
+    protocol.connection_lost = Mock()
     protocol.data_received = Mock()
     protocol.pause_writing = Mock()
     protocol.resume_writing = Mock()
     return protocol
+
 
 @pytest.fixture
 def anyio_backend():
